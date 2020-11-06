@@ -23,9 +23,10 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: docker image build and creaate image
-        uses: VaultVulp/gp-docker-action@1.1.7
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
         with:
-          github-token: ${{ secrets.TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
-          image-name: myjavaapp # Provide Docker image name
-          image-tag: v1 # Provide Docker image tag 
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: sreelekhatirupathi/my-docker-hub-repository
+          tag_with_ref: true
