@@ -25,9 +25,10 @@ RUN 	wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v${Tomcat_Version}/bin/a
         mkdir -p /opt/tomcat/ /opt/myapplication/ -p && \
 	mv apache-tomcat-${Tomcat_Version}.tar.gz /tmp/ && \
 	mv apache-tomcat-${Tomcat_Version}/* /opt/tomcat/. 
+ADD . /opt/myapplication/
 ADD context.xml /opt/tomcat/webapps/manager/META-INF/	
 ADD tomcat-users.xml /opt/tomcat/conf/
-ADD ./ /opt/myapplication/
+
 WORKDIR /opt/myapplication/
 RUN mvn clean install && cp /opt/myapplication/target/spring3-mvc-maven-xml-hello-world-1.0-SNAPSHOT.war /opt/tomcat/webapps/myapp.war
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
