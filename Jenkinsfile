@@ -23,7 +23,7 @@ stage("pull docker image"){
 steps{
 sh"""
 docker pull manasamidhuna/test:${BUILD_NUMBER}
-docker run -it -d -p 8080:8080 --name test_${BUILD_NUMBER} manasamidhuna/test:${BUILD_NUMBER}
+docker run -it -d -p 8081:8080 --name test_${BUILD_NUMBER} manasamidhuna/test:${BUILD_NUMBER}
 """
 }
 }
