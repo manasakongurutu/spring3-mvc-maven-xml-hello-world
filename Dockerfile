@@ -3,7 +3,7 @@ FROM centos:7
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 ENV PATH=$PATH:$JAVA_HOME
 RUN yum install java-1.8.0-openjdk-devel wget -y
-EXPOSE 8082
+EXPOSE 8080
 
 # Installing Maven
 ENV Mvn_Version=3.6.3 
